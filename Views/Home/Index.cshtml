@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4 col-md-push-8">
+        <div class="card card-primary client-controls">
+            <div class="card-heading">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Make a call</h3>
+
+                <p>
+                    <strong>Status: </strong>
+                    <span id="call-status">
+                        Connecting to Twilio...
+                    </span>
+                </p>
+                <button class="btn btn-lg btn-success answer-button" disabled>Answer call</button>
+                <button class="btn btn-lg btn-danger hangup-button" disabled onclick="hangUp()">Hang up</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8 col-md-pull-4">
+
+        <div class="card card-default">
+            <div class="card-body">
+
+
+
+
+                @* <p><strong>Name:</strong> <span id="customer-name"></span></p> *@
+                @* <p><strong>Phone number:</strong> +8801775189439</p> *@
+                <p><strong>Customer Name:</strong>: <input class="form-control" id="customerName" type="text"> </input>
+                <p><strong>Phone number:</strong>: <input class="form-control" id="phoneNumber" type="text"> </input>
+
+                <div class="pull-right">
+                    <button onclick="callCustomer()" type="button" class="btn btn-primary btn-lg call-customer-button">
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                        Call customer
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://sdk.twilio.com/js/client/v1.13/twilio.js"></script>
+    <script src="~/js/browser-calls.js"></script>
