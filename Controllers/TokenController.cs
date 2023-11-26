@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Twilio.Jwt.AccessToken;
 
-namespace EbossTwilio.Controllers;
+namespace TwilioVoiceIntegration.Controllers;
 
 public class TokenController : Controller
 {

@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using EbossTwilio.Models;
+using TwilioVoiceIntegration.Models;
 
-namespace EbossTwilio.Controllers;
+namespace TwilioVoiceIntegration.Controllers;
 
 public class HomeController : Controller
 {

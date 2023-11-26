@@ -6,7 +6,7 @@ using Twilio.TwiML.Voice;
 using Microsoft.Extensions.Configuration;
 
 
-namespace EbossTwilio.Controllers;
+namespace TwilioVoiceIntegration.Controllers;
 
 public class CallController : TwilioController
 {

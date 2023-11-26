@@ -1,4 +1,4 @@
-namespace EbossTwilio.Models;
+namespace TwilioVoiceIntegration.Models;
 
 public class ErrorViewModel
 {
