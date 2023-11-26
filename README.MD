@@ -1,37 +1,63 @@
-# EbossApp Directory Contents
+# Twilio Voice Integration in ASP.NET Application
 
-The `EbossApp` directory contains a simple Blazor app that is ready to run. Here's a quick overview of the key files and directories within this app:
+## Overview
 
-1. **Program.cs**: This file serves as the entry point for the app. It starts the server and allows you to configure app services and middleware.
+This ASP.NET application demonstrates the integration of Twilio for handling voice calls. The application includes controllers for managing calls, a homepage, and generating Twilio access tokens.
 
-2. **App.razor**: This file is the root component of the app. It defines the layout and structure of the user interface.
+### Controllers
 
-3. **Pages**: This directory contains example web pages for the app. These pages provide a starting point for building your app's user interface.
+1. **CallController.cs**
+    - Handles Twilio calls and connections.
+    - Includes a method to connect to a specified phone number or a predefined support agent.
 
-4. **EbossApp.csproj**: This file defines the project and its dependencies. It includes information about the app's build configuration and references to external packages.
+2. **HomeController.cs**
+    - The default controller managing the main views of the application.
 
-5. **Properties/launchSettings.json**: This JSON file, located inside the Properties directory, defines different profile settings for the local development environment. It includes configuration options for launching the app locally, such as specifying port numbers.
+3. **TokenController.cs**
+    - Generates Twilio access tokens with the necessary grants for voice capabilities.
 
-Additionally, here are some external resources and commands related to the app:
+## Configuration
 
-- Microsoft ASP.NET Core MVC Tutorial: [Adding a Model](https://docs.microsoft.com/fr-fr/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-3.0&tabs=visual-studio-code)
+Ensure that your `appsettings.json` file includes the necessary Twilio configuration settings:
 
-- Microsoft ASP.NET Core Web API Tutorial: [Creating a Web API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio-code)
+```json
+{
+   "Logging": {
+      "LogLevel": {
+         "Default": "Information",
+         "Microsoft.AspNetCore": "Warning"
+      }
+   },
+   "TWIML_APP_SID": "your_twiml_app_sid",
+   "TWILIO_ACCOUNT_SID": "your_twilio_account_sid",
+   "TEST_TWILIO_ACCOUNT_SID": "your_test_twilio_account_sid",
+   "TEST_TWILIO_AUTH_TOKEN": "your_test_twilio_auth_token",
+   "TWILIO_API_KEY_SID": "your_twilio_api_key_sid",
+   "TWILIO_API_KEY_SECRET": "your_twilio_api_key_secret",
+   "TWILIO_PHONE_NO": "your_twilio_phone_number"
+}
+```
+# Client-Side Script: browser-calls.js
 
-- To automatically rebuild and run the app when changes are detected, use the command: `$ dotnet watch`
+The script handles Twilio Client configuration and provides functions for initiating, answering, and ending calls.
 
-- Twilio Commands:
-  - Purchase a mobile phone number with a specific country code: `twilio phone-numbers:buy:mobile --country-code BD`
-  - Update the voice URL for a phone number: `twilio phone-numbers:update +16187654158 --voice-url http://fad7-103-112-150-17.ngrok.io`
+## Usage
+
+1. Include the Twilio JavaScript library in your HTML file.
+2. Ensure the server-side token generation endpoint is correctly configured.
+3. Include the `browser-calls.js` script in your HTML file.
+4. Call functions like `callCustomer(phoneNumber)`, `callSupport()`, and `hangUp()` based on your application's logic.
+
+## Dependencies
+
+- Twilio.AspNet.Core
+- Twilio.TwiML
+- Twilio.Jwt.AccessToken
+- Twilio JavaScript library
 
 ## Getting Started
 
-To run the app locally, follow these steps:
-
-1. Install the required dependencies (if not already installed).
-2. Open a terminal and navigate to the `EbossApp` directory.
-3. Run the app using the command: `dotnet watch run`
-
-For detailed instructions on building and customizing your Blazor app and integrating Twilio functionality, refer to the provided Microsoft tutorials.
-
-Feel free to modify and expand upon this readme as needed to provide additional information or instructions specific to your app's development and deployment process.
+1. Clone the repository.
+2. Update the `appsettings.json` file with your Twilio credentials.
+3. Build and run the project.
+4. Feel free to customize this application based on your specific requirements or integrate it into your ASP.NET project for Twilio-powered voice communication.
